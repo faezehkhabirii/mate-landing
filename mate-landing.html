@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seminar landing</title>
+  <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=call" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <a href="tel:02191002007" class="phone-link">
+      <span class="material-symbols-outlined">call</span>
+      <span class="support-text">پشتیبانی</span>
+      <span class="phone-number">۰۲۱-۹۱۰۰۲۰۰۷</span>
+    </a>
+  </div>
+  <div class="header-center">
+    <img src="./assets/images/hamrahetam-logo.svg" alt=" " />
+  </div>
+</header>
+
+
+
+
+
+<section class="intro-timer-section">
+  <div class="container">
+    <div class="card">
+      <div class="left">
+        <h3>این فرصت را از دست ندهید!</h3>
+        <p>همین حالا صندلی خود را رزرو کنید</p>
+        <button id="openModalBtn" class="btn">رزرو بلیت</button>
+      </div>
+      <div class="divider desktop-divider"></div>
+      <div class="divider mobile-divider"></div>
+      <div class="right">
+        <div>
+          <h2>سمینار کاوش همدلانه: تحولی در درک و درمان تروما</h2>
+          <p>تهران، مرکز همایش‌های بین‌المللی کتابخانه ملی</p>
+          <p>۹ تیر ماه ۱۴۰۴ - ساعت ۱۷ الی ۲۲</p>
+          <p class="countdown-text">شمارش معکوس آغاز شده است...</p>
+        </div>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="number" id="days">--</span>
+            <span class="label">روز</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="hours">--</span>
+            <span class="label">ساعت</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="minutes">--</span>
+            <span class="label">دقیقه</span>
+          </div>
+          <div class="countdown-item">
+            <span class="number" id="seconds">--</span>
+            <span class="label">ثانیه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal / Bottom Sheet -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content">
+    <button class="close-btn" id="closeModalBtn" aria-label="بستن">&times;</button>
+
+    <div id="phoneInputContent">
+      <h2 id="modalTitle">ورود</h2>
+      <p style="margin: 16px 0;">لطفاً برای ورود شماره موبایل خود را وارد کنید</p>
+      <input type="tel" id="phoneInput" placeholder="شماره موبایل" />
+      <button id="submitPhoneBtn" class="submit-btn">ورود</button>
+    </div>
+
+    <div id="codeVerificationContent" style="display:none;">
+      <h2>کد تأیید</h2>
+      <p>کد ارسال‌شده به شماره <span id="displayedPhone"></span> را وارد کنید</p>
+      <div class="code-inputs">
+        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" />
+      </div>
+      <button id="editPhoneBtn" class="submit-btn">ویرایش شماره موبایل</button>
+      <p class="resend-timer">تا دریافت مجدد کد <span id="timer">1:59</span></p>
+    </div>
+  </div>
+</div>
+
+
+
+  
+<section class="video-text-section">
+  <div class="container">
+    <div class="video-wrapper" id="videoWrapper" >
+      <img src="assets/images/video-tumbnail.png" />
+    </div>
+
+    <div class="text-container" style="flex: 1; font-size: 18px; line-height: 1.6;">
+      <h3 style="font-size: 26px; margin-bottom: 15px; color: #2b2b6b;">درباره سمینار</h3>
+      <p>
+در این سمینار، با رویکردی علمی، کاربردی و تحول‌آفرین آشنا می‌شوید که به درمان تروما از طریق کاوشی ژرف و هم‌دلانه در روان فردِ تحت درمان می‌پردازد.
+این رویکرد، معروف به "کاوش هم‌دلانه"، توسط بنیان‌گذار آن، دکتر گبور مته، برای اولین بار در ایران آموزش داده خواهد شد. ارائه دکتر مته به‌صورت آنلاین و همراه با مترجم همزمان خواهد بود.
+اگر به‌دنبال نگاهی نو در درمان تروما هستید، این فرصت آموزشی را، که همراه با ارائه مطالعه موردی است، از دست ندهید.
+      </p>
+    
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+    <h3 class="features-title">مزایای این سمینار</h3>
+    <div class="features-list">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <img src="./assets/images/feature1.png" alt="گفتگوی تعاملی" />
+        </div>
+        <p>گفتگوی تعاملی با سخنران اصلی</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <img src="./assets/images/feature2.png" alt="پذیرایی رسمی" />
+        </div>
+        <p>با پذیرایی رسمی همراه با شام</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <img src="./assets/images/feature3.png" alt="مدرک بین‌المللی" />
+        </div>
+        <p>اعطای مدرک بین‌المللی</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="speaker-section">
+  <div class="container">
+    <div class="image-wrapper">
+      <img src="./assets/images/speaker-img.png" alt=" " />
+    </div>
+    <div class="text-container" style="flex: 1; font-size: 18px; line-height: 1.6;">
+      <h3>درباره سخنران</h3>
+   <p>
+  <strong>دکتر گبور مَتِه؛ صدایی جهانی در فهم تروما و ریشه‌های روان‌–جسمی آن</strong><br />
+  گبور مته، پزشک و روان‌درمانگر کانادایی، با پژوهش‌های برجسته‌اش در زمینه تروما، استرس، اعتیاد و پیوند آن‌ها با سلامت روان، شناخته می‌شود.
+  آثار او نگاهی تازه به منشأ دردهای روانی دارند؛ نگاهی که شرایط اجتماعی و تجربه‌های دوران کودکی را به‌عنوان ریشه مشکلات بزرگسالی برجسته می‌کند.
+  کتاب‌های مته از جمله اسطوره طبیعی بودن و در قلمرو ارواح گرسنه، تاکنون به زبان‌های متعددی ترجمه شده و الهام‌بخش متخصصان سلامت روان در سراسر جهان بوده‌اند.
+</p>
+
+    
+    </div>
+  </div>
+</section>
+
+<section class="about-organizer-section">
+  <div class="container about-organizer-container">
+    <div class="about-organizer-text">
+      <h3>درباره برگزارکننده</h3>
+     <p>«همراهتم» برگزارکننده سمینار «کاوش هم‌دلانه؛ تحولی در درک و درمان تروما» است - رویدادی که نخستین حضور علمی دکتر گبور مته، پزشک و نویسنده بین‌المللی در ایران را به همراه دارد. «همراهتم» مجموعه‌ای تخصصی در حوزه سلامت روان و توسعه فردی است که با هدف ارتقای کیفیت زندگی افراد، خدمات آموزشی و مشاوره‌ای ارائه داده و رویدادهای علمی برگزار می‌کند. این مجموعه با تکیه بر دانش روز و همکاری با متخصصان برجسته، تلاش می‌کند مفاهیم پیچیده‌ی روانشناسی را به زبان ساده و کاربردی در اختیار علاقه‌مندان قرار دهد.</p>    </div>
+    <div class="about-organizer-image">
+      <img src="./assets/images/hamrahetam-logo.svg" alt="همراهتم" />
+    </div>
+  </div>
+</section>
+
+<section class="location-section">
+  <h3>محل برگزاری سمینار</h3>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.938931818879!2d51.42484981525824!3d35.71011288019137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e01d2f860c2d3%3A0xa8e020a4dd3162b!2sNational%20Library%20Auditorium!5e0!3m2!1sen!2sir!4v1685115286997!5m2!1sen!2sir"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="محل برگزاری سمینار"></iframe>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h3>سوالات متداول</h3>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
+        
+      موضوع اصلی سمینار چیست؟
+    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+    </button>
+    <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-btn" hidden>
+      <p>موضوع اصلی سمینار درباره درمان و درک عمیق ترومـا است.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
+         
+      مخاطب سمینار کیست؟
+    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+    </button>
+    <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-btn" hidden>
+      <p>مخاطبان اصلی روانشناسان، درمانگران و متخصصان حوزه سلامت روان هستند.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
+        
+      چگونه ثبت‌نام کنم و گواهی بگیرم؟
+    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+    </button>
+    <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-btn" hidden>
+      <p>می‌توانید از طریق سایت سمینار ثبت‌نام کرده و پس از پایان گواهی دریافت نمایید.</p>
+    </div>
+  </div>
+</section>
+
+<section class="support-section">
+  <div class="container support-container">
+    <div class="support-buttons">
+      <a href="https://t.me/hamrahetamm" target="_blank" class="support-btn telegram-btn" aria-label="Telegram">
+        <img src="./assets/images/telegram-logo.svg" alt="Telegram" />
+        <span>Telegram</span>
+      </a>
+      <a href="https://www.instagram.com/hamrahetam.ir/" target="_blank" class="support-btn instagram-btn" aria-label="Instagram">
+        <img src="./assets/images/instagram-logo.svg" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+    </div>
+    <div class="support-text">
+      <h3>ارتباط با تیم پشتیبانی</h3>
+      <p>برای ارتباط با تیم پشتیبانی همراهتم و دریافت راهنمایی، از طریق لینک‌های روبرو اقدام کنید.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-overlay">
+    <div class="cta-card">
+      <p>این فرصت را از دست ندهید!<br>همین حالا صندلی خود را رزرو کنید</p>
+      <a href="#" class="btn-reserve">رزرو بلیت</a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer-section">
+  <div class="footer-container">
+        <div class="footer-right">
+      <img src="./assets/images/hamrahetam-logo.svg" alt="همراهتم" class="footer-logo" />
+    </div>
+
+    <div class="footer-center">
+      <div class="social-icons">
+        <a href="https://x.com/Hamrahetamir" aria-label="Telegram"><img src="./assets/images/twitter.svg" alt="توییتر" /></a>
+        <a href="https://www.instagram.com/hamrahetam.ir/" aria-label="Instagram"><img src="./assets/images/instagram.svg" alt="اینستاگرام" /></a>
+        <a href="https://www.linkedin.com/company/hamrahetam/" aria-label="LinkedIn"><img src="./assets/images/linkedin.svg" alt="لینکدین" /></a>
+      </div>
+    </div>
+       <div class="footer-left">
+      <img src="./assets/images/Enamad.png" alt="نماد اعتماد الکترونیکی" class="footer-logo" />
+  
+    </div>
+  </div>
+  <p class="footer-text">کلیه حقوق مادی و معنوی این وب سایت متعلق به شرکت آریا آرامین است.</p>
+</footer>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
