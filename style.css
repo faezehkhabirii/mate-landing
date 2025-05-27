@@ -110,7 +110,7 @@ section {
   align-items: center;
   justify-content: center;
   height: 90vh;
-  background: url('./assets/images/mate-hero.png') no-repeat center/cover;
+  background: url('./assets/images/mate-hero.jpg') no-repeat center/cover;
   background-size: cover;
   padding: 20px;
   box-sizing: border-box;
@@ -1026,7 +1026,7 @@ select {
     align-items: center;
     justify-content: center;
     height: 90vh;
-    background: url('./assets/images/mate-hero.png') no-repeat right/cover;
+    background: url('./assets/images/mate-hero.jpg') no-repeat right/cover;
     background-size: cover;
     padding: 20px;
     box-sizing: border-box;
