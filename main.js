@@ -60,20 +60,26 @@ const timerInterval = setInterval(updateCountdown, 1000);
 });
 
 
+  document.getElementById('confirmPaymentBtn').addEventListener('click', function() {
+
+    window.location.href = 'invoice-page.html';
+  });
+
+
 const modal = document.getElementById('modal');
+const priceModal = document.getElementById('priceModal');
 const openModalBtn = document.getElementById('openModalBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
-
+const submitPhoneBtn = document.getElementById('submitPhoneBtn');
+const confirmCodeBtn = document.getElementById('confirmCodeBtn');
+const closePriceBtn = document.getElementById('closePriceBtn');
 const phoneInputContent = document.getElementById('phoneInputContent');
 const codeVerificationContent = document.getElementById('codeVerificationContent');
-
-const submitPhoneBtn = document.getElementById('submitPhoneBtn');
-const editPhoneBtn = document.getElementById('editPhoneBtn');
-const displayedPhone = document.getElementById('displayedPhone');
-
 const phoneInput = document.getElementById('phoneInput');
+const displayedPhone = document.getElementById('displayedPhone');
+const codeInputs = document.querySelectorAll('.code-digit');
 
-
+// Open auth modal
 openModalBtn.addEventListener('click', () => {
   modal.style.display = 'flex';
   phoneInputContent.style.display = 'block';
@@ -82,23 +88,16 @@ openModalBtn.addEventListener('click', () => {
   phoneInput.focus();
 });
 
+// Close auth modal
+closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
 
-closeModalBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-
+// Submit phone and show code entry
 submitPhoneBtn.addEventListener('click', () => {
   const phone = phoneInput.value.trim();
-  if (!phone) {
-    alert('لطفا شماره موبایل را وارد کنید');
-    return;
-  }
+  const phonePattern = /^09\d{9}$/;
+  if (!phone) { alert('لطفاً شماره موبایل را وارد کنید'); return; }
+  if (!phonePattern.test(phone)) { alert('شماره موبایل نامعتبر است'); return; }
   displayedPhone.textContent = phone;
-  phoneInputContent.style.opacity = 1;
-  codeVerificationContent.style.opacity = 0;
-
- 
   fadeOut(phoneInputContent, () => {
     phoneInputContent.style.display = 'none';
     codeVerificationContent.style.display = 'block';
@@ -106,51 +105,26 @@ submitPhoneBtn.addEventListener('click', () => {
   });
 });
 
-
-editPhoneBtn.addEventListener('click', () => {
-  codeVerificationContent.style.opacity = 1;
-  phoneInputContent.style.opacity = 0;
-
-  fadeOut(codeVerificationContent, () => {
-    codeVerificationContent.style.display = 'none';
-    phoneInputContent.style.display = 'block';
-    fadeIn(phoneInputContent);
-  });
+// Confirm code and open price modal
+confirmCodeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  priceModal.style.display = 'flex';
 });
 
+// Close price modal
+closePriceBtn.addEventListener('click', () => priceModal.style.display = 'none');
 
-function fadeOut(element, callback) {
-  element.style.transition = 'opacity 0.3s ease';
-  element.style.opacity = 0;
-  setTimeout(() => {
-    callback();
-  }, 300);
-}
-
-function fadeIn(element) {
-  element.style.transition = 'opacity 0.3s ease';
-  element.style.opacity = 1;
-}
-
-const codeInputs = document.querySelectorAll('.code-digit');
-
+// Auto-advance code inputs
 codeInputs.forEach((input, idx) => {
   input.addEventListener('input', () => {
-    if (input.value.length === 1) {
-   
-      if (idx < codeInputs.length - 1) {
-        codeInputs[idx + 1].focus();
-      }
-    }
+    input.value = input.value.replace(/\D/g, '');
+    if (input.value.length === 1 && idx < codeInputs.length - 1) codeInputs[idx + 1].focus();
   });
-
   input.addEventListener('keydown', (e) => {
-    if (e.key === "Backspace" && input.value.length === 0) {
-
-      if (idx > 0) {
-        codeInputs[idx - 1].focus();
-      }
-    }
+    if (e.key === 'Backspace' && input.value === '' && idx > 0) codeInputs[idx - 1].focus();
   });
 });
 
+// Fade utility
+function fadeOut(el, cb) { el.style.transition = 'opacity 0.3s ease'; el.style.opacity = 0; setTimeout(cb, 300); }
+function fadeIn(el) { el.style.transition = 'opacity 0.3s ease'; el.style.opacity = 1; }

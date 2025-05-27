@@ -13,10 +13,10 @@
 <body>
 <header>
   <div class="header-left">
-    <a href="tel:02191002007" class="phone-link">
+    <a href="tel:09190102269" class="phone-link">
       <span class="material-symbols-outlined">call</span>
       <span class="support-text">پشتیبانی</span>
-      <span class="phone-number">۰۲۱-۹۱۰۰۲۰۰۷</span>
+      <span class="phone-number">۰۹۱۹۰۱۰۲۲۶۹ </span>
     </a>
   </div>
   <div class="header-center">
@@ -40,7 +40,7 @@
       <div class="divider mobile-divider"></div>
       <div class="right">
         <div>
-          <h2>سمینار کاوش همدلانه: تحولی در درک و درمان تروما</h2>
+          <h2>سمینار تروما؛ درمان از طریق شناخت ریشه‌ها و همدلی
           <p>تهران، مرکز همایش‌های بین‌المللی کتابخانه ملی</p>
           <p>۹ تیر ماه ۱۴۰۴ - ساعت ۱۷ الی ۲۲</p>
           <p class="countdown-text">شمارش معکوس آغاز شده است...</p>
@@ -68,37 +68,69 @@
   </div>
 </section>
 
-<!-- Modal / Bottom Sheet -->
+<!-- Auth Modal -->
 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-content">
     <button class="close-btn" id="closeModalBtn" aria-label="بستن">&times;</button>
 
     <div id="phoneInputContent">
       <h2 id="modalTitle">ورود</h2>
-      <p style="margin: 16px 0;">لطفاً برای ورود شماره موبایل خود را وارد کنید</p>
-      <input type="tel" id="phoneInput" placeholder="شماره موبایل" />
-      <button id="submitPhoneBtn" class="submit-btn">ورود</button>
+      <p style="margin: 16px 0;">لطفا شماره موبایل خود را وارد کنید</p>
+      <input type="tel" id="phoneInput" placeholder=""
+             pattern="^09\d{9}$" inputmode="numeric" required />
+      <button id="submitPhoneBtn" class="submit-btn">ارسال کد</button>
     </div>
 
     <div id="codeVerificationContent" style="display:none;">
       <h2>کد تأیید</h2>
       <p>کد ارسال‌شده به شماره <span id="displayedPhone"></span> را وارد کنید</p>
       <div class="code-inputs">
-        <input type="text" maxlength="1" class="code-digit" />
-        <input type="text" maxlength="1" class="code-digit" />
-        <input type="text" maxlength="1" class="code-digit" />
-        <input type="text" maxlength="1" class="code-digit" />
-        <input type="text" maxlength="1" class="code-digit" />
-        <input type="text" maxlength="1" class="code-digit" />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
+        <input type="text" maxlength="1" class="code-digit" pattern="\d" inputmode="numeric" required />
       </div>
-      <button id="editPhoneBtn" class="submit-btn">ویرایش شماره موبایل</button>
-      <p class="resend-timer">تا دریافت مجدد کد <span id="timer">1:59</span></p>
+      <p class="resend-timer">تا دریافت مجدد کد <span id="timer">02:00</span></p>
+      <button id="confirmCodeBtn" class="submit-btn">تایید کد</button>
     </div>
   </div>
 </div>
 
+<!-- Price / Payment Modal -->
+<div id="priceModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="priceModalTitle">
+  <div class="modal-content">
+    <button class="close-btn" id="closePriceBtn" aria-label="بستن">&times;</button>
+    <h2 id="priceModalTitle">انتخاب نوع پرداخت</h2>
+  
 
+    <div id="paymentContent">
+          <div class="payment-tag">پرداخت کامل</div>
 
+<div class="quantity-row">
+  <label for="quantitySelect" style="text-align: right; display: block; width: 100%;">تعداد:</label>
+  <select id="quantitySelect" class="quantity-select">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3" >3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</div>
+      <div class="details">
+        <p>ظرفیت محدود</p>
+     <p>مهلت ثبت‌نام: تا ۷ تیر ۱۴۰۴</p>
+      </div>
+     <div class="price-card">
+  <div class="discount-badge">۱۵ درصد تخفیف</div>
+  <p class="price-original"><s> تومان۱٬۸۰۰٬۰۰۰ </s></p>
+  <p class="price-final">۱٬۵۳۰٬۰۰۰ تومان</p>
+</div>
+    </div>
+   <button id="confirmPaymentBtn" class="submit-btn">تایید و ادامه</button>
+  </div>
+</div>
   
 <section class="video-text-section">
   <div class="container">
@@ -109,9 +141,7 @@
     <div class="text-container" style="flex: 1; font-size: 18px; line-height: 1.6;">
       <h3 style="font-size: 26px; margin-bottom: 15px; color: #2b2b6b;">درباره سمینار</h3>
       <p>
-در این سمینار، با رویکردی علمی، کاربردی و تحول‌آفرین آشنا می‌شوید که به درمان تروما از طریق کاوشی ژرف و هم‌دلانه در روان فردِ تحت درمان می‌پردازد.
-این رویکرد، معروف به "کاوش هم‌دلانه"، توسط بنیان‌گذار آن، دکتر گبور مته، برای اولین بار در ایران آموزش داده خواهد شد. ارائه دکتر مته به‌صورت آنلاین و همراه با مترجم همزمان خواهد بود.
-اگر به‌دنبال نگاهی نو در درمان تروما هستید، این فرصت آموزشی را، که همراه با ارائه مطالعه موردی است، از دست ندهید.
+در این سمینار، با روشی علمی، کاربردی و تحول‌آفرین آشنا می‌شوید که به ارتقای سلامت روان، افزایش کیفیت زندگی و رشد فردی کمک می‌کند. اگر به‌دنبال نگاهی نو در درمان هستید، این فرصت آموزشی را از دست ندهید. مسیر یادگیری و تحول، از اینجا آغاز می‌شود.
       </p>
     
     </div>
@@ -120,23 +150,23 @@
 
 <section class="features-section">
   <div class="container">
-    <h3 class="features-title">مزایای این سمینار</h3>
+    <h3 class="features-title">  امتیازهای رویداد</h3>
     <div class="features-list">
       <div class="feature-item">
         <div class="feature-icon">
-          <img src="./assets/images/feature1.png" alt="گفتگوی تعاملی" />
+          <img src="./assets/images/QA.svg" alt="گفتگوی تعاملی" />
         </div>
         <p>گفتگوی تعاملی با سخنران اصلی</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon">
-          <img src="./assets/images/feature2.png" alt="پذیرایی رسمی" />
+          <img src="./assets/images/fastfood.svg" alt="پذیرایی رسمی" />
         </div>
-        <p>با پذیرایی رسمی همراه با شام</p>
+        <p> پذیرایی  همراه با شام</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon">
-          <img src="./assets/images/feature3.png" alt="مدرک بین‌المللی" />
+          <img src="./assets/images/certificate.svg" alt="مدرک بین‌المللی" />
         </div>
         <p>اعطای مدرک بین‌المللی</p>
       </div>
@@ -167,7 +197,12 @@
   <div class="container about-organizer-container">
     <div class="about-organizer-text">
       <h3>درباره برگزارکننده</h3>
-     <p>«همراهتم» برگزارکننده سمینار «کاوش هم‌دلانه؛ تحولی در درک و درمان تروما» است - رویدادی که نخستین حضور علمی دکتر گبور مته، پزشک و نویسنده بین‌المللی در ایران را به همراه دارد. «همراهتم» مجموعه‌ای تخصصی در حوزه سلامت روان و توسعه فردی است که با هدف ارتقای کیفیت زندگی افراد، خدمات آموزشی و مشاوره‌ای ارائه داده و رویدادهای علمی برگزار می‌کند. این مجموعه با تکیه بر دانش روز و همکاری با متخصصان برجسته، تلاش می‌کند مفاهیم پیچیده‌ی روانشناسی را به زبان ساده و کاربردی در اختیار علاقه‌مندان قرار دهد.</p>    </div>
+<p>
+  «همراهتم» برگزارکننده سمینار «تروما؛ درمان از طریق شناخت ریشه‌ها و همدلی» است – رویدادی که نخستین حضور علمی دکتر گبور مته، پزشک و نویسنده بین‌المللی در ایران را به همراه دارد.
+  «همراهتم» مجموعه‌ای تخصصی در حوزه سلامت روان و توسعه فردی است که با هدف ارتقای کیفیت زندگی افراد، خدمات آموزشی و مشاوره‌ای ارائه داده و رویدادهای علمی برگزار می‌کند.
+  این مجموعه با تکیه بر دانش روز و همکاری با متخصصان برجسته، تلاش می‌کند مفاهیم پیچیده‌ی روانشناسی را به زبان ساده و کاربردی در اختیار علاقه‌مندان قرار دهد.
+</p>
+   </div>
     <div class="about-organizer-image">
       <img src="./assets/images/hamrahetam-logo.svg" alt="همراهتم" />
     </div>
@@ -178,7 +213,7 @@
   <h3>محل برگزاری سمینار</h3>
   <div class="map-container">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.938931818879!2d51.42484981525824!3d35.71011288019137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e01d2f860c2d3%3A0xa8e020a4dd3162b!2sNational%20Library%20Auditorium!5e0!3m2!1sen!2sir!4v1685115286997!5m2!1sen!2sir"
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.934122450233!2d51.43109341085879!3d35.75242392594629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e0402dba0b3a5%3A0xe9a05c3f18549bf!2sNational%20Library%20Auditorium!5e0!3m2!1sen!2s!4v1748347231942!5m2!1sen!2s"
       width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       title="محل برگزاری سمینار"></iframe>
   </div>
@@ -262,10 +297,10 @@
     </div>
        <div class="footer-left">
       <img src="./assets/images/Enamad.png" alt="نماد اعتماد الکترونیکی" class="footer-logo" />
-  
+           <img src="./assets/images/samandehi.png" alt="نماد ساماندهی" class="footer-logo" style="width: 100px;"/>
     </div>
   </div>
-  <p class="footer-text">کلیه حقوق مادی و معنوی این وب سایت متعلق به شرکت آریا آرامین است.</p>
+  <p class="footer-text">کلیه حقوق مادی و معنوی این وب سایت متعلق به همراهتم است.</p>
 </footer>
 
 
